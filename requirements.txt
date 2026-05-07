@@ -1,0 +1,8 @@
+numpy==2.4.4
+omegaconf==2.3.0
+openai==2.35.1
+pandas==3.0.2
+protobuf==7.34.1
+python-dotenv==1.2.2
+PyYAML==6.0.3
+tqdm==4.67.3
