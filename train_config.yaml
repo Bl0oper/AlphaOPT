@@ -16,16 +16,19 @@ api_keys:
 
 params:
   num_iterations: 1
-  batch_size: 12
+  batch_size: 1   # was 12
   tolerance: 0.1
   max_solution_attempts: 1
   max_verify_attempts: 3
   variant_num: 5  # the number of refined condition 
   
-dataset: train_data_4o_new_300 
-output_folder: train_data_300_flash_latest 
+# train_data_4o_new_300 is from the original uncommitted github
+# dataset: train_data_4o_new_300 
+dataset: nlp4lp
+output_folder: train_data_nlp4lp_flash_latest 
 file_paths:
-  train_data_path: ./data/optimization_tasks/train/${dataset}.json
+  # train_data_path: ./data/optimization_tasks/train/${dataset}.json
+  train_data_path: ./data/optimization_tasks/split/train_data/${dataset}_train.json
   train_output_dir: ./learning/${output_folder}/
   lib_dir: ./data/experience_library/iterations/${output_folder}/
   metrics_log_path: ./learning/${output_folder}/iteration_metrics.json
