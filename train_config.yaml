@@ -1,7 +1,7 @@
 # base_model: google/gemini-2.5-flash
 base_model: qwen/qwen3-coder:free  
 # advanced_model: google/gemini-2.5-flash
-advanced_model: qwen/qwen3-next-80b-a3b-instruct:free
+advanced_model: qwen/qwen3-coder:free
 base_service: openrouter # null for direct API calls
 advanced_service: openrouter
 verbose: false
