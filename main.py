@@ -101,7 +101,7 @@ def main():
             llm_retri, llm_opt, llm_diag, llm_ins, library, 
             config.params,
             config.file_paths,
-            max_workers=1 # was 12
+            max_workers=12 # was 12
         )
         
         # Save checkpoint
@@ -123,7 +123,7 @@ def main():
             iter=iter, tasks=train_tasks, 
             config=config, llm_evolve=llm_evolve,
             verbose=False, save_data=True, output_path=config.file_paths.train_output_dir,
-            max_workers=1,  # was 8
+            max_workers=8,  # was 8
         )
         print("refinement_avg_gain:", avg_refinement_rate)
         # Save iteration metrics log for library evolution phase

@@ -1,7 +1,7 @@
 # base_model: google/gemini-2.5-flash
-base_model: qwen/qwen3-coder:free  
+base_model: openai/gpt-oss-120b:free  
 # advanced_model: google/gemini-2.5-flash
-advanced_model: qwen/qwen3-coder:free
+advanced_model: openai/gpt-oss-120b:free
 base_service: openrouter # null for direct API calls
 advanced_service: openrouter
 verbose: false
@@ -16,7 +16,7 @@ api_keys:
 
 params:
   num_iterations: 1
-  batch_size: 1   # was 12
+  batch_size: 12   # was 12
   tolerance: 0.1
   max_solution_attempts: 1
   max_verify_attempts: 3

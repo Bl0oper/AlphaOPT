@@ -562,7 +562,11 @@ def execute_code(code_str, timeout_sec=400):
             text=True, 
             capture_output=True, 
             check=True,
-            timeout=timeout_sec # Set the maximum run time
+            timeout=timeout_sec, # Set the maximum run time
+            
+            # added for utf-8
+            encoding='utf-8',
+            errors='replace'
         )
 
         # Extract Gurobi's objVal (optimal objective value) from stdout

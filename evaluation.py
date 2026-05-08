@@ -16,6 +16,10 @@ from src.experience_library import ExperienceLibrary
 from src.llm_retriever import LibraryRetrieval
 from src.train_eval_utils import check_optimality, self_debug 
 
+# set utf-8 everywhere
+os.environ["PYTHONUTF8"] = "1"
+os.environ["PYTHONIOENCODING"] = "utf-8"
+
 def evaluate(
     tasks: List["Task"],
     llm_opt: "ProgramGenerator",
@@ -138,7 +142,7 @@ def evaluate(
     
     output_dirs = [f"testing/{output_folder}/task_{task.id}" for task in tasks]
     # Use ThreadPoolExecutor to process tasks concurrently
-    with concurrent.futures.ThreadPoolExecutor(max_workers=1) as executor:
+    with concurrent.futures.ThreadPoolExecutor(max_workers=6) as executor:
         results = list(tqdm(executor.map(process_task, tasks, output_dirs), total=len(tasks), desc="Evaluating\n"))
 
     # Calculate the number of successes and successful executions from the results
