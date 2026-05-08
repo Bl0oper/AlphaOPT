@@ -4,7 +4,7 @@ data_path_template:  ./data/optimization_tasks/split/test_data/${dataset}_test.j
 library_path: ./data/experience_library/library.json
 output_folder_template: ${dataset}_raw_4o
 # model: openai/gpt-4o
-model: deepseek/deepseek-chat:free
+model: qwen/qwen3-next-80b-a3b-instruct:free
 service: openrouter # null
 n_runs: 3
 temperature: 0.0
