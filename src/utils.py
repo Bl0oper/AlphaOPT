@@ -7,6 +7,25 @@ from copy import deepcopy
 import threading
 from dotenv import load_dotenv
 
+# import time, random
+
+# def retry_on_rate_limit(max_retries=8, base_wait=15):
+#     def decorator(func):
+#         def wrapper(*args, **kwargs):
+#             for attempt in range(max_retries):
+#                 try:
+#                     return func(*args, **kwargs)
+#                 except Exception as e:
+#                     if "429" in str(e) or "rate limit" in str(e).lower():
+#                         wait = base_wait * (2 ** attempt) + random.uniform(0, 5)
+#                         print(f"[Rate limit] Attempt {attempt+1}/{max_retries}. Waiting {wait:.1f}s...")
+#                         time.sleep(wait)
+#                     else:
+#                         raise
+#             raise RuntimeError(f"Max retries ({max_retries}) exceeded.")
+#         return wrapper
+#     return decorator
+
 #* Configure
 from omegaconf import OmegaConf
 config = OmegaConf.load("train_config.yaml")
@@ -186,6 +205,7 @@ def call_llm_and_parse_with_retry(
     """
     vendor, client = _build_client(model, service)
 
+    # @retry_on_rate_limit()
     def _send_request() -> str:
         """
         Dispatch the request to the proper SDK and return raw text.
